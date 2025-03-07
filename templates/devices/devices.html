@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Dispositivos IoT {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Gerenciamento de Dispositivos IoT</h2>
+
+    <!-- Botão para adicionar novo dispositivo -->
+    <div class="d-flex justify-content-between my-3">
+        <a href="{{ url_for('devices.add_device') }}" class="btn btn-success">Adicionar Dispositivo</a>
+        <a href="{{ url_for('workspace.workspace') }}" class="btn btn-secondary">Voltar ao Workspace</a>
+    </div>
+
+    <!-- Tabela de dispositivos -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in devices %}
+            <tr>
+                <td>{{ device.id }}</td>
+                <td>{{ device.name }}</td>
+                <td>
+                    <a href="{{ url_for('devices.edit_device', device_id=device.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{{ url_for('devices.delete_device', device_id=device.id) }}" class="btn btn-danger btn-sm"
+                        onclick="return confirm('Tem certeza que deseja excluir este dispositivo?');">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if not devices %}
+    <p class="text-center text-muted">Nenhum dispositivo cadastrado.</p>
+    {% endif %}
+</div>
+{% endblock %}

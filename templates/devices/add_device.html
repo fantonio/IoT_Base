@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Adicionar Dispositivo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">Adicionar Novo Dispositivo IoT</h2>
+    <form action="{{ url_for('devices.add_device') }}" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome do Dispositivo</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição</label>
+            <textarea class="form-control" id="description" name="description" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Editar Dispositivo</h1>
+
+<form method="POST">
+    <label for="name">Nome do Dispositivo:</label>
+    <input type="text" name="name" id="name" value="{{ device.name }}" required>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{{ url_for('devices.list_devices') }}">Voltar</a>
+{% endblock %}

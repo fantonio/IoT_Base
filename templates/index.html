@@ -1,0 +1,225 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Base - Início</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        .dashboard {
+            width: 60%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
+        .dashboard h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Bem-vindo ao Futuro da IoT 🚀</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/noticias">Notícias</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="dashboard">
+            <h2>📊 Estatísticas Globais de IoT</h2>
+            <canvas id="iotChart"></canvas>
+        </section>
+    </div>
+    <script>
+        const ctx = document.getElementById('iotChart').getContext('2d');
+        const iotChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Dispositivos', 'Sensores', 'Redes Ativas', 'Crescimento Anual'],
+                datasets: [{
+                    label: 'Dados IoT',
+                    data: [12000, 8000, 1500, 25],
+                    backgroundColor: ['#3498db', '#2ecc71', '#f39c12', '#e74c3c']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Base - Início</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .dashboard {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
+        .dashboard h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Bem-vindo ao Futuro da IoT 🚀</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/noticias">Notícias</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="dashboard">
+            <h2>📊 Estatísticas Globais de IoT</h2>
+            <canvas id="iotGlobalChart"></canvas>
+        </section>
+        <section class="dashboard">
+            <h2>📡 Dispositivos IoT no Brasil</h2>
+            <canvas id="iotBrasilChart"></canvas>
+        </section>
+        <section class="dashboard">
+            <h2>⚠️ Principais Falhas de Segurança</h2>
+            <canvas id="iotSecurityChart"></canvas>
+        </section>
+        <section class="dashboard">
+            <h2>🔝 Top 10 Ataques IoT no Mundo</h2>
+            <canvas id="iotAttacksChart"></canvas>
+        </section>
+    </div>
+    <script>
+        function createChart(ctx, label, data, colors) {
+            return new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: label,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        createChart(document.getElementById('iotGlobalChart').getContext('2d'), 
+            ['Dispositivos', 'Sensores', 'Redes Ativas', 'Crescimento Anual'], 
+            [12000, 8000, 1500, 25], 
+            ['#3498db', '#2ecc71', '#f39c12', '#e74c3c']
+        );
+
+        createChart(document.getElementById('iotBrasilChart').getContext('2d'), 
+            ['2020', '2021', '2022', '2023'], 
+            [500, 1200, 1800, 2500], 
+            ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+        );
+
+        createChart(document.getElementById('iotSecurityChart').getContext('2d'), 
+            ['Malware', 'DDoS', 'Phishing', 'Man-in-the-Middle'], 
+            [60, 75, 45, 30], 
+            ['#e74c3c', '#8e44ad', '#2980b9', '#27ae60']
+        );
+
+        createChart(document.getElementById('iotAttacksChart').getContext('2d'), 
+            ['Mirai', 'BrickerBot', 'Mozi', 'VPNFilter', 'Amnesia'], 
+            [5000, 3500, 2700, 1500, 900], 
+            ['#d35400', '#c0392b', '#7f8c8d', '#2c3e50', '#16a085']
+        );
+    </script>
+</body>
+</html>

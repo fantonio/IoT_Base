@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+<h2>Users</h2>
+<ul>
+    {% for user in users %}
+    <li>{{ user.email }} - {% if user.is_admin %}Admin{% else %}User{% endif %}</li>
+    {% endfor %}
+</ul>
+<h2>Devices</h2>
+<ul>
+    {% for device in devices %}
+    <li>{{ device.name }} - {{ device.status }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

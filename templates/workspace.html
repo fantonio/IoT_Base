@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace - IoT Base</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background: #2a2a3b;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            text-decoration: none;
+            background: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Workspace - IoT Base</h1>
+        <p>Escolha uma ação:</p>
+        <a href="{{ url_for('devices.list_devices') }}" class="btn"><i class="fas fa-list"></i> Listar Dispositivos</a>
+        <a href="{{ url_for('devices.add_device') }}" class="btn"><i class="fas fa-plus"></i> Adicionar Dispositivo</a>
+        <a href="{{ url_for('devices.delete_device', device_id=1) }}" class="btn btn-danger">Deletar Dispositivo</a>
+        <a href="{{ url_for('devices.edit_device', device_id=1) }}" class="btn btn-warning">Editar Dispositivo</a>
+        <br>
+        <a href="{% if 'user_id' in session %}{{ url_for('main.index') }}{% else %}{{ url_for('auth.login') }}{% endif %}" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Voltar ao Início
+        </a>
+        
+        
+        
+    </div>
+</body>
+</html>
